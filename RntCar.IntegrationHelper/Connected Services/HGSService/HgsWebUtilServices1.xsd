@@ -1,0 +1,1035 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://tempuri.org/" xmlns:ns1="http://intf.service.hgspayments.payments.hmn.ykb.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" version="1.0">
+  <xs:import schemaLocation="HgsWebUtilServices.xsd2.xsd" namespace="http://intf.service.hgspayments.payments.hmn.ykb.com/" />
+  <xs:element name="AddCustomer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" type="tns:RequestInfo" />
+        <xs:element minOccurs="0" name="user" type="tns:UserInfo" />
+        <xs:element minOccurs="0" name="customer" type="tns:Customer" />
+        <xs:element name="customerId" type="xs:long" />
+        <xs:element minOccurs="0" name="errorCode" type="xs:string" />
+        <xs:element minOccurs="0" name="errorInfo" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddCustomerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="AddCustomerResult" type="xs:boolean" />
+        <xs:element name="customerId" type="xs:long" />
+        <xs:element minOccurs="0" name="errorCode" type="xs:string" />
+        <xs:element minOccurs="0" name="errorInfo" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddUpdateAutoPaymentDirective">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" type="tns:RequestInfo" />
+        <xs:element minOccurs="0" name="user" type="tns:UserInfo" />
+        <xs:element minOccurs="0" name="productNo" type="xs:string" />
+        <xs:element name="isAutoPaymentDirective" type="xs:boolean" />
+        <xs:element minOccurs="0" name="apd" type="tns:AutoPaymentDirective" />
+        <xs:element minOccurs="0" name="errorCode" type="xs:string" />
+        <xs:element minOccurs="0" name="errorInfo" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddUpdateAutoPaymentDirectivePostaWEB">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" type="tns:RequestInfo" />
+        <xs:element minOccurs="0" name="user" type="tns:UserInfo" />
+        <xs:element minOccurs="0" name="customer" type="tns:Customer" />
+        <xs:element minOccurs="0" name="productNo" type="xs:string" />
+        <xs:element minOccurs="0" name="plateNo" type="xs:string" />
+        <xs:element name="isAutoPaymentDirective" type="xs:boolean" />
+        <xs:element minOccurs="0" name="apd" type="tns:PTTAutoPaymentDirective" />
+        <xs:element minOccurs="0" name="errorCode" type="xs:string" />
+        <xs:element minOccurs="0" name="errorInfo" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddUpdateAutoPaymentDirectivePostaWEBResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="AddUpdateAutoPaymentDirectivePostaWEBResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="errorCode" type="xs:string" />
+        <xs:element minOccurs="0" name="errorInfo" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddUpdateAutoPaymentDirectiveResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="AddUpdateAutoPaymentDirectiveResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="errorCode" type="xs:string" />
+        <xs:element minOccurs="0" name="errorInfo" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BalanceInquiryForIVR">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" type="tns:RequestInfo" />
+        <xs:element minOccurs="0" name="user" type="tns:UserInfo" />
+        <xs:element minOccurs="0" name="productNo" type="xs:string" />
+        <xs:element minOccurs="0" name="identityNo" type="xs:string" />
+        <xs:element name="processCode" type="xs:int" />
+        <xs:element name="quantity" type="xs:int" />
+        <xs:element minOccurs="0" name="errorCode" type="xs:string" />
+        <xs:element minOccurs="0" name="errorInfo" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BalanceInquiryForIVRResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="BalanceInquiryForIVRResult">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:any namespace="##other" processContents="lax" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="quantity" type="xs:int" />
+        <xs:element minOccurs="0" name="errorCode" type="xs:string" />
+        <xs:element minOccurs="0" name="errorInfo" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BindTrailerToProduct">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" type="tns:RequestInfo" />
+        <xs:element minOccurs="0" name="user" type="tns:UserInfo" />
+        <xs:element minOccurs="0" name="trailerPlateNo" type="xs:string" />
+        <xs:element minOccurs="0" name="trailerLicenceNo" type="xs:string" />
+        <xs:element minOccurs="0" name="productNo" type="xs:string" />
+        <xs:element minOccurs="0" name="errorCode" type="xs:string" />
+        <xs:element minOccurs="0" name="errorInfo" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BindTrailerToProductResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="BindTrailerToProductResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="errorCode" type="xs:string" />
+        <xs:element minOccurs="0" name="errorInfo" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CancelProduct">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" type="tns:RequestInfo" />
+        <xs:element minOccurs="0" name="user" type="tns:UserInfo" />
+        <xs:element minOccurs="0" name="productNo" type="xs:string" />
+        <xs:element minOccurs="0" name="reason" type="xs:string" />
+        <xs:element minOccurs="0" name="errorCode" type="xs:string" />
+        <xs:element minOccurs="0" name="errorInfo" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CancelProductResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="CancelProductResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="errorCode" type="xs:string" />
+        <xs:element minOccurs="0" name="errorInfo" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAPDHistoryByAccountNo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" type="tns:RequestInfo" />
+        <xs:element minOccurs="0" name="user" type="tns:UserInfo" />
+        <xs:element minOccurs="0" name="accountNo" type="xs:string" />
+        <xs:element name="paymentType" type="xs:int" />
+        <xs:element minOccurs="0" name="errorCode" type="xs:string" />
+        <xs:element minOccurs="0" name="errorInfo" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAPDHistoryByAccountNoPostaWeb">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" type="tns:RequestInfo" />
+        <xs:element minOccurs="0" name="user" type="tns:UserInfo" />
+        <xs:element minOccurs="0" name="accountNo" type="xs:string" />
+        <xs:element name="paymentType" type="xs:int" />
+        <xs:element minOccurs="0" name="errorCode" type="xs:string" />
+        <xs:element minOccurs="0" name="errorInfo" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAPDHistoryByAccountNoPostaWebResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetAPDHistoryByAccountNoPostaWebResult" type="tns:ArrayOfAPDListWithPTTPostaWeb" />
+        <xs:element minOccurs="0" name="errorCode" type="xs:string" />
+        <xs:element minOccurs="0" name="errorInfo" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAPDHistoryByAccountNoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetAPDHistoryByAccountNoResult" type="tns:ArrayOfAPDList" />
+        <xs:element minOccurs="0" name="errorCode" type="xs:string" />
+        <xs:element minOccurs="0" name="errorInfo" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAPDInfoByUserAndBranch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" type="tns:RequestInfo" />
+        <xs:element minOccurs="0" name="user" type="tns:UserInfo" />
+        <xs:element minOccurs="0" name="userCode" type="xs:string" />
+        <xs:element minOccurs="0" name="headOfficeNo" type="xs:string" />
+        <xs:element minOccurs="0" name="startDate" type="xs:string" />
+        <xs:element minOccurs="0" name="finishDate" type="xs:string" />
+        <xs:element minOccurs="0" name="errorCode" type="xs:string" />
+        <xs:element minOccurs="0" name="errorInfo" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAPDInfoByUserAndBranchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetAPDInfoByUserAndBranchResult" type="tns:ArrayOfAPDListPostaWeb" />
+        <xs:element minOccurs="0" name="errorCode" type="xs:string" />
+        <xs:element minOccurs="0" name="errorInfo" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCustomerProductUserInfoByAccountNo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" type="tns:RequestInfo" />
+        <xs:element minOccurs="0" name="user" type="tns:UserInfo" />
+        <xs:element minOccurs="0" name="accountNo" type="xs:string" />
+        <xs:element name="paymentType" type="xs:int" />
+        <xs:element minOccurs="0" name="errorCode" type="xs:string" />
+        <xs:element minOccurs="0" name="errorInfo" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCustomerProductUserInfoByAccountNoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetCustomerProductUserInfoByAccountNoResult" type="tns:ArrayOfAPDList" />
+        <xs:element minOccurs="0" name="errorCode" type="xs:string" />
+        <xs:element minOccurs="0" name="errorInfo" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCustomerProductUserInfoByProductNo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" type="tns:RequestInfo" />
+        <xs:element minOccurs="0" name="user" type="tns:UserInfo" />
+        <xs:element minOccurs="0" name="productNo" type="xs:string" />
+        <xs:element minOccurs="0" name="errorCode" type="xs:string" />
+        <xs:element minOccurs="0" name="errorInfo" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCustomerProductUserInfoByProductNoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetCustomerProductUserInfoByProductNoResult" type="tns:CustomerProductUser" />
+        <xs:element minOccurs="0" name="errorCode" type="xs:string" />
+        <xs:element minOccurs="0" name="errorInfo" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProcessInfoByRefNo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" type="tns:RequestInfo" />
+        <xs:element minOccurs="0" name="user" type="tns:UserInfo" />
+        <xs:element name="processRefNo" type="xs:long" />
+        <xs:element minOccurs="0" name="errorCode" type="xs:string" />
+        <xs:element minOccurs="0" name="errorInfo" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProcessInfoByRefNoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetProcessInfoByRefNoResult" type="tns:ArrayOfProcessInfo" />
+        <xs:element minOccurs="0" name="errorCode" type="xs:string" />
+        <xs:element minOccurs="0" name="errorInfo" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProductStatusListByCustomerNo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" type="tns:RequestInfo" />
+        <xs:element minOccurs="0" name="user" type="tns:UserInfo" />
+        <xs:element minOccurs="0" name="customerId" type="xs:string" />
+        <xs:element minOccurs="0" name="errorCode" type="xs:string" />
+        <xs:element minOccurs="0" name="errorInfo" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProductStatusListByCustomerNoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetProductStatusListByCustomerNoResult" type="tns:ArrayOfProductStatusInfo" />
+        <xs:element minOccurs="0" name="errorCode" type="xs:string" />
+        <xs:element minOccurs="0" name="errorInfo" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProductStatusListByPlateNo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" type="tns:RequestInfo" />
+        <xs:element minOccurs="0" name="user" type="tns:UserInfo" />
+        <xs:element minOccurs="0" name="plateNo" type="xs:string" />
+        <xs:element minOccurs="0" name="errorCode" type="xs:string" />
+        <xs:element minOccurs="0" name="errorInfo" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProductStatusListByPlateNoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetProductStatusListByPlateNoResult" type="tns:ArrayOfProductStatusInfo" />
+        <xs:element minOccurs="0" name="errorCode" type="xs:string" />
+        <xs:element minOccurs="0" name="errorInfo" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProductStatusListByTCKNAndPassportNo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" type="tns:RequestInfo" />
+        <xs:element minOccurs="0" name="user" type="tns:UserInfo" />
+        <xs:element minOccurs="0" name="TCKN_VKN" type="xs:string" />
+        <xs:element minOccurs="0" name="passportNo" type="xs:string" />
+        <xs:element minOccurs="0" name="errorCode" type="xs:string" />
+        <xs:element minOccurs="0" name="errorInfo" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProductStatusListByTCKNAndPassportNoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetProductStatusListByTCKNAndPassportNoResult" type="tns:ArrayOfProductStatusInfo" />
+        <xs:element minOccurs="0" name="errorCode" type="xs:string" />
+        <xs:element minOccurs="0" name="errorInfo" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTrailerByTrailerPlateNo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" type="tns:RequestInfo" />
+        <xs:element minOccurs="0" name="user" type="tns:UserInfo" />
+        <xs:element minOccurs="0" name="trailerPlateNo" type="xs:string" />
+        <xs:element minOccurs="0" name="errorCode" type="xs:string" />
+        <xs:element minOccurs="0" name="errorInfo" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTrailerByTrailerPlateNoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetTrailerByTrailerPlateNoResult" type="tns:TrailerInfo" />
+        <xs:element minOccurs="0" name="errorCode" type="xs:string" />
+        <xs:element minOccurs="0" name="errorInfo" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTrailerListByProductNo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" type="tns:RequestInfo" />
+        <xs:element minOccurs="0" name="user" type="tns:UserInfo" />
+        <xs:element minOccurs="0" name="productNo" type="xs:string" />
+        <xs:element minOccurs="0" name="errorCode" type="xs:string" />
+        <xs:element minOccurs="0" name="errorInfo" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTrailerListByProductNoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetTrailerListByProductNoResult" type="tns:ArrayOfTrailerInfo" />
+        <xs:element minOccurs="0" name="errorCode" type="xs:string" />
+        <xs:element minOccurs="0" name="errorInfo" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTransactionListByProductAndDate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" type="tns:RequestInfo" />
+        <xs:element minOccurs="0" name="user" type="tns:UserInfo" />
+        <xs:element minOccurs="0" name="productNo" type="xs:string" />
+        <xs:element name="startDate" type="xs:dateTime" />
+        <xs:element name="finishDate" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="errorCode" type="xs:string" />
+        <xs:element minOccurs="0" name="errorInfo" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTransactionListByProductAndDateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetTransactionListByProductAndDateResult" type="tns:ArrayOfTransaction" />
+        <xs:element minOccurs="0" name="errorCode" type="xs:string" />
+        <xs:element minOccurs="0" name="errorInfo" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTransitListByProductAndDate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" type="tns:RequestInfo" />
+        <xs:element minOccurs="0" name="user" type="tns:UserInfo" />
+        <xs:element minOccurs="0" name="productNo" type="xs:string" />
+        <xs:element name="startDate" type="xs:dateTime" />
+        <xs:element name="finishDate" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="errorCode" type="xs:string" />
+        <xs:element minOccurs="0" name="errorInfo" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTransitListByProductAndDateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetTransitListByProductAndDateResult" type="tns:ArrayOfTransit" />
+        <xs:element minOccurs="0" name="errorCode" type="xs:string" />
+        <xs:element minOccurs="0" name="errorInfo" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetVehicleClassByPlateNo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" type="tns:RequestInfo" />
+        <xs:element minOccurs="0" name="user" type="tns:UserInfo" />
+        <xs:element minOccurs="0" name="plateNo" type="xs:string" />
+        <xs:element minOccurs="0" name="errorCode" type="xs:string" />
+        <xs:element minOccurs="0" name="errorInfo" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetVehicleClassByPlateNoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetVehicleClassByPlateNoResult" type="tns:ArrayOfVehicleClassInfo" />
+        <xs:element minOccurs="0" name="errorCode" type="xs:string" />
+        <xs:element minOccurs="0" name="errorInfo" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoadBalance">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" type="tns:RequestInfo" />
+        <xs:element minOccurs="0" name="user" type="tns:UserInfo" />
+        <xs:element name="customerId" type="xs:long" />
+        <xs:element minOccurs="0" name="productNo" type="xs:string" />
+        <xs:element name="paymentType" type="xs:int" />
+        <xs:element name="paymentAccountNo" type="xs:long" />
+        <xs:element name="amount" type="xs:decimal" />
+        <xs:element name="chargingProcessNo" type="xs:long" />
+        <xs:element minOccurs="0" name="errorCode" type="xs:string" />
+        <xs:element minOccurs="0" name="errorInfo" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoadBalanceDescriptionEdit">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" type="tns:RequestInfo" />
+        <xs:element minOccurs="0" name="user" type="tns:UserInfo" />
+        <xs:element minOccurs="0" name="productNo" type="xs:string" />
+        <xs:element name="chargingProcessNo" type="xs:long" />
+        <xs:element minOccurs="0" name="description" type="xs:string" />
+        <xs:element minOccurs="0" name="errorCode" type="xs:string" />
+        <xs:element minOccurs="0" name="errorInfo" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoadBalanceDescriptionEditResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="LoadBalanceDescriptionEditResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="errorCode" type="xs:string" />
+        <xs:element minOccurs="0" name="errorInfo" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoadBalanceForIVR">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" type="tns:RequestInfo" />
+        <xs:element minOccurs="0" name="user" type="tns:UserInfo" />
+        <xs:element minOccurs="0" name="productNo" type="xs:string" />
+        <xs:element minOccurs="0" name="identityNo" type="xs:string" />
+        <xs:element minOccurs="0" name="cardNumber" type="xs:string" />
+        <xs:element name="amount" type="xs:decimal" />
+        <xs:element minOccurs="0" name="hgsGSMNo" type="xs:string" />
+        <xs:element minOccurs="0" name="errorCode" type="xs:string" />
+        <xs:element minOccurs="0" name="errorInfo" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoadBalanceForIVRResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="LoadBalanceForIVRResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="hgsGSMNo" type="xs:string" />
+        <xs:element minOccurs="0" name="errorCode" type="xs:string" />
+        <xs:element minOccurs="0" name="errorInfo" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoadBalanceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="LoadBalanceResult" type="xs:boolean" />
+        <xs:element name="chargingProcessNo" type="xs:long" />
+        <xs:element minOccurs="0" name="errorCode" type="xs:string" />
+        <xs:element minOccurs="0" name="errorInfo" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoadBalanceWithDescription">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" type="tns:RequestInfo" />
+        <xs:element minOccurs="0" name="user" type="tns:UserInfo" />
+        <xs:element name="customerId" type="xs:long" />
+        <xs:element minOccurs="0" name="productNo" type="xs:string" />
+        <xs:element name="paymentType" type="xs:int" />
+        <xs:element name="paymentAccountNo" type="xs:long" />
+        <xs:element name="amount" type="xs:decimal" />
+        <xs:element minOccurs="0" name="description" type="xs:string" />
+        <xs:element name="chargingProcessNo" type="xs:long" />
+        <xs:element minOccurs="0" name="errorCode" type="xs:string" />
+        <xs:element minOccurs="0" name="errorInfo" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoadBalanceWithDescriptionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="LoadBalanceWithDescriptionResult" type="xs:boolean" />
+        <xs:element name="chargingProcessNo" type="xs:long" />
+        <xs:element minOccurs="0" name="errorCode" type="xs:string" />
+        <xs:element minOccurs="0" name="errorInfo" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoadBalanceWithGSMNo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" type="tns:RequestInfo" />
+        <xs:element minOccurs="0" name="user" type="tns:UserInfo" />
+        <xs:element name="customerId" type="xs:long" />
+        <xs:element minOccurs="0" name="productNo" type="xs:string" />
+        <xs:element name="paymentType" type="xs:int" />
+        <xs:element name="paymentAccountNo" type="xs:long" />
+        <xs:element minOccurs="0" name="gsmNo" type="xs:string" />
+        <xs:element name="amount" type="xs:decimal" />
+        <xs:element minOccurs="0" name="description" type="xs:string" />
+        <xs:element name="operatorCode" type="xs:short" />
+        <xs:element name="chargingProcessNo" type="xs:long" />
+        <xs:element minOccurs="0" name="errorCode" type="xs:string" />
+        <xs:element minOccurs="0" name="errorInfo" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoadBalanceWithGSMNoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="LoadBalanceWithGSMNoResult" type="xs:boolean" />
+        <xs:element name="chargingProcessNo" type="xs:long" />
+        <xs:element minOccurs="0" name="errorCode" type="xs:string" />
+        <xs:element minOccurs="0" name="errorInfo" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoadBalanceWithPlateNo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" type="tns:RequestInfo" />
+        <xs:element minOccurs="0" name="user" type="tns:UserInfo" />
+        <xs:element minOccurs="0" name="plateNo" type="xs:string" />
+        <xs:element name="paymentType" type="xs:int" />
+        <xs:element name="paymentAccountNo" type="xs:long" />
+        <xs:element minOccurs="0" name="gsmNo" type="xs:string" />
+        <xs:element name="amount" type="xs:decimal" />
+        <xs:element minOccurs="0" name="description" type="xs:string" />
+        <xs:element name="operatorCode" type="xs:short" />
+        <xs:element name="chargingProcessNo" type="xs:long" />
+        <xs:element minOccurs="0" name="errorCode" type="xs:string" />
+        <xs:element minOccurs="0" name="errorInfo" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoadBalanceWithPlateNoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="LoadBalanceWithPlateNoResult" type="xs:boolean" />
+        <xs:element name="chargingProcessNo" type="xs:long" />
+        <xs:element minOccurs="0" name="errorCode" type="xs:string" />
+        <xs:element minOccurs="0" name="errorInfo" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RefundBalance">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" type="tns:RequestInfo" />
+        <xs:element minOccurs="0" name="user" type="tns:UserInfo" />
+        <xs:element name="chargingProcessNo" type="xs:long" />
+        <xs:element minOccurs="0" name="errorCode" type="xs:string" />
+        <xs:element minOccurs="0" name="errorInfo" type="xs:string" />
+        <xs:element name="balance" type="xs:decimal" />
+        <xs:element name="date" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RefundBalanceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="RefundBalanceResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="errorCode" type="xs:string" />
+        <xs:element minOccurs="0" name="errorInfo" type="xs:string" />
+        <xs:element name="balance" type="xs:decimal" />
+        <xs:element name="date" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ResetBalance">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" type="tns:RequestInfo" />
+        <xs:element minOccurs="0" name="user" type="tns:UserInfo" />
+        <xs:element minOccurs="0" name="productNo" type="xs:string" />
+        <xs:element minOccurs="0" name="reason" type="xs:string" />
+        <xs:element name="balance" type="xs:decimal" />
+        <xs:element minOccurs="0" name="errorCode" type="xs:string" />
+        <xs:element minOccurs="0" name="errorInfo" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ResetBalanceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="ResetBalanceResult" type="xs:boolean" />
+        <xs:element name="balance" type="xs:decimal" />
+        <xs:element minOccurs="0" name="errorCode" type="xs:string" />
+        <xs:element minOccurs="0" name="errorInfo" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReverseBalance">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" type="tns:RequestInfo" />
+        <xs:element minOccurs="0" name="user" type="tns:UserInfo" />
+        <xs:element name="chargingProcessNo" type="xs:long" />
+        <xs:element minOccurs="0" name="errorCode" type="xs:string" />
+        <xs:element minOccurs="0" name="errorInfo" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReverseBalanceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="ReverseBalanceResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="errorCode" type="xs:string" />
+        <xs:element minOccurs="0" name="errorInfo" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SellProduct">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" type="tns:RequestInfo" />
+        <xs:element minOccurs="0" name="user" type="tns:UserInfo" />
+        <xs:element name="customerId" type="xs:long" />
+        <xs:element minOccurs="0" name="product" type="tns:Product" />
+        <xs:element name="saleProcessNo" type="xs:long" />
+        <xs:element name="chargingProcessNo" type="xs:long" />
+        <xs:element minOccurs="0" name="errorCode" type="xs:string" />
+        <xs:element minOccurs="0" name="errorInfo" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SellProductResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="SellProductResult" type="xs:boolean" />
+        <xs:element name="saleProcessNo" type="xs:long" />
+        <xs:element name="chargingProcessNo" type="xs:long" />
+        <xs:element minOccurs="0" name="errorCode" type="xs:string" />
+        <xs:element minOccurs="0" name="errorInfo" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TransferBalance">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" type="tns:RequestInfo" />
+        <xs:element minOccurs="0" name="user" type="tns:UserInfo" />
+        <xs:element minOccurs="0" name="oldProductNo" type="xs:string" />
+        <xs:element minOccurs="0" name="newProductNo" type="xs:string" />
+        <xs:element minOccurs="0" name="errorCode" type="xs:string" />
+        <xs:element minOccurs="0" name="errorInfo" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TransferBalanceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="TransferBalanceResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="errorCode" type="xs:string" />
+        <xs:element minOccurs="0" name="errorInfo" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UnBindTrailerByProductNo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" type="tns:RequestInfo" />
+        <xs:element minOccurs="0" name="user" type="tns:UserInfo" />
+        <xs:element minOccurs="0" name="productNo" type="xs:string" />
+        <xs:element minOccurs="0" name="errorCode" type="xs:string" />
+        <xs:element minOccurs="0" name="errorInfo" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UnBindTrailerByProductNoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="UnBindTrailerByProductNoResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="errorCode" type="xs:string" />
+        <xs:element minOccurs="0" name="errorInfo" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UnBindTrailerByTrailerPlateNo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" type="tns:RequestInfo" />
+        <xs:element minOccurs="0" name="user" type="tns:UserInfo" />
+        <xs:element minOccurs="0" name="trailerPlateNo" type="xs:string" />
+        <xs:element minOccurs="0" name="errorCode" type="xs:string" />
+        <xs:element minOccurs="0" name="errorInfo" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UnBindTrailerByTrailerPlateNoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="UnBindTrailerByTrailerPlateNoResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="errorCode" type="xs:string" />
+        <xs:element minOccurs="0" name="errorInfo" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateCustomer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" type="tns:RequestInfo" />
+        <xs:element minOccurs="0" name="user" type="tns:UserInfo" />
+        <xs:element minOccurs="0" name="customer" type="tns:Customer" />
+        <xs:element minOccurs="0" name="errorCode" type="xs:string" />
+        <xs:element minOccurs="0" name="errorInfo" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateCustomerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="UpdateCustomerResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="errorCode" type="xs:string" />
+        <xs:element minOccurs="0" name="errorInfo" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateProduct">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" type="tns:RequestInfo" />
+        <xs:element minOccurs="0" name="user" type="tns:UserInfo" />
+        <xs:element minOccurs="0" name="product" type="tns:Product" />
+        <xs:element minOccurs="0" name="errorCode" type="xs:string" />
+        <xs:element minOccurs="0" name="errorInfo" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateProductResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="UpdateProductResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="errorCode" type="xs:string" />
+        <xs:element minOccurs="0" name="errorInfo" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="VerifyBankByProductNo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" type="tns:RequestInfo" />
+        <xs:element minOccurs="0" name="user" type="tns:UserInfo" />
+        <xs:element minOccurs="0" name="productNo" type="xs:string" />
+        <xs:element minOccurs="0" name="errorCode" type="xs:string" />
+        <xs:element minOccurs="0" name="errorInfo" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="VerifyBankByProductNoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="VerifyBankByProductNoResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="errorCode" type="xs:string" />
+        <xs:element minOccurs="0" name="errorInfo" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="Transaction">
+    <xs:sequence>
+      <xs:element name="TranDateTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="TranCode" type="xs:string" />
+      <xs:element minOccurs="0" name="TranDescription" type="xs:string" />
+      <xs:element minOccurs="0" name="TranAmount" type="xs:string" />
+      <xs:element minOccurs="0" name="User" type="tns:UserInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="UserInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BankCode" type="xs:string" />
+      <xs:element minOccurs="0" name="SubOrganisation" type="xs:string" />
+      <xs:element minOccurs="0" name="HeadOfficeNo" type="xs:string" />
+      <xs:element minOccurs="0" name="BranchNo" type="xs:string" />
+      <xs:element minOccurs="0" name="BranchName" type="xs:string" />
+      <xs:element minOccurs="0" name="UserCode" type="xs:string" />
+      <xs:element minOccurs="0" name="UserName" type="xs:string" />
+      <xs:element minOccurs="0" name="UserSurname" type="xs:string" />
+      <xs:element minOccurs="0" name="BoxOffice" type="xs:string" />
+      <xs:element minOccurs="0" name="BranchCityCode" type="xs:string" />
+      <xs:element minOccurs="0" name="BranchTownName" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Transit">
+    <xs:sequence>
+      <xs:element name="EntryDateTime" type="xs:dateTime" />
+      <xs:element name="ExitDateTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="EntryLocation" type="xs:string" />
+      <xs:element minOccurs="0" name="ExitLocation" type="xs:string" />
+      <xs:element minOccurs="0" name="Description" type="xs:string" />
+      <xs:element minOccurs="0" name="Amount" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RequestInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="WsUserName" type="xs:string" />
+      <xs:element minOccurs="0" name="WsPassword" type="xs:string" />
+      <xs:element name="RefNo" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfProcessInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ProcessInfo" nillable="true" type="tns:ProcessInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ProcessInfo">
+    <xs:sequence>
+      <xs:element name="CharhingProcessNo" type="xs:long" />
+      <xs:element name="ProcessType" type="xs:int" />
+      <xs:element minOccurs="0" name="ProductNo" type="xs:string" />
+      <xs:element name="ProcessDate" type="xs:dateTime" />
+      <xs:element name="Amount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Status" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ProductStatusInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ProductNo" type="xs:string" />
+      <xs:element minOccurs="0" name="ProductStatus" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfTransaction">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Transaction" nillable="true" type="tns:Transaction" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfProductStatusInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ProductStatusInfo" nillable="true" type="tns:ProductStatusInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfTransit">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Transit" nillable="true" type="tns:Transit" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Customer">
+    <xs:sequence>
+      <xs:element name="CustomerId" type="xs:long" />
+      <xs:element minOccurs="0" name="CustomerType" type="xs:string" />
+      <xs:element minOccurs="0" name="TCKN_VKN" type="xs:string" />
+      <xs:element minOccurs="0" name="PassportNo" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" type="xs:string" />
+      <xs:element minOccurs="0" name="Surname" type="xs:string" />
+      <xs:element minOccurs="0" name="CompanyName" type="xs:string" />
+      <xs:element minOccurs="0" name="AddressType" type="xs:string" />
+      <xs:element minOccurs="0" name="Address1" type="xs:string" />
+      <xs:element minOccurs="0" name="Address2" type="xs:string" />
+      <xs:element minOccurs="0" name="Town" type="xs:string" />
+      <xs:element minOccurs="0" name="CityCode" type="xs:string" />
+      <xs:element minOccurs="0" name="PostCode" type="xs:string" />
+      <xs:element minOccurs="0" name="CustomerEmail" type="xs:string" />
+      <xs:element minOccurs="0" name="Status" type="xs:string" />
+      <xs:element minOccurs="0" name="BankCustomerNo" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfTrailerInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TrailerInfo" nillable="true" type="tns:TrailerInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="TrailerInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="TrailerPlateNo" type="xs:string" />
+      <xs:element minOccurs="0" name="MainProductNo" type="xs:string" />
+      <xs:element minOccurs="0" name="Status" type="xs:string" />
+      <xs:element name="AddingDateTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="AddingUser" type="xs:string" />
+      <xs:element minOccurs="0" name="AddingBranch" type="xs:string" />
+      <xs:element minOccurs="0" name="AddingHeadOfficeNo" type="xs:string" />
+      <xs:element name="UpdatingDateTime" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="UpdatingUser" type="xs:string" />
+      <xs:element minOccurs="0" name="UpdatingBranch" type="xs:string" />
+      <xs:element minOccurs="0" name="UpdatingHeadOfficeNo" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfAPDList">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="APDList" nillable="true" type="tns:APDList" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="APDList">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="APDLog" type="tns:APDLog" />
+      <xs:element minOccurs="0" name="CustomerProductUser" type="tns:CustomerProductUser" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="APDLog">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="TransactionType" type="xs:string" />
+      <xs:element minOccurs="0" name="UserInfo" type="tns:UserInfo" />
+      <xs:element minOccurs="0" name="TransactionDate" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CustomerProductUser">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Customer" type="tns:Customer" />
+      <xs:element minOccurs="0" name="Product" type="tns:Product" />
+      <xs:element name="ListStatus" type="xs:int" />
+      <xs:element name="Balance" type="xs:decimal" />
+      <xs:element minOccurs="0" name="User" type="tns:UserInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Product">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ProductNo" type="xs:string" />
+      <xs:element minOccurs="0" name="ProductStatus" type="xs:string" />
+      <xs:element minOccurs="0" name="ProductType" type="xs:string" />
+      <xs:element name="VehicleClass" type="xs:int" />
+      <xs:element minOccurs="0" name="PlateNumber" type="xs:string" />
+      <xs:element minOccurs="0" name="LicenseNumber" type="xs:string" />
+      <xs:element minOccurs="0" name="GSMNumber" type="xs:string" />
+      <xs:element name="SaleAmount" type="xs:decimal" />
+      <xs:element name="Deposit" type="xs:decimal" />
+      <xs:element name="ChargeAmount" type="xs:decimal" />
+      <xs:element name="PaymentType" type="xs:int" />
+      <xs:element minOccurs="0" name="PaymentAccountId" type="xs:string" />
+      <xs:element name="IsAutoPaymentDirective" type="xs:boolean" />
+      <xs:element minOccurs="0" name="APD" type="tns:AutoPaymentDirective" />
+      <xs:element minOccurs="0" name="MultipleSaleNumber" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AutoPaymentDirective">
+    <xs:sequence>
+      <xs:element name="APDPaymentType" type="xs:int" />
+      <xs:element minOccurs="0" name="APDAccountId" type="xs:string" />
+      <xs:element name="APDMinimumBalance" type="xs:decimal" />
+      <xs:element name="APDChargeAmount" type="xs:decimal" />
+      <xs:element name="APDTryCounter" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="APDListWithPTTPostaWeb">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:APDList">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="PTTAutoPaymentDirective" type="tns:PTTAutoPaymentDirective" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="PTTAutoPaymentDirective">
+    <xs:sequence>
+      <xs:element name="APDPaymentType" type="xs:int" />
+      <xs:element minOccurs="0" name="APDAPCHNumber" type="xs:string" />
+      <xs:element minOccurs="0" name="APDACardNo" type="xs:string" />
+      <xs:element name="APDMinimumBalance" type="xs:decimal" />
+      <xs:element name="APDChargeAmount" type="xs:decimal" />
+      <xs:element name="APDTryCounter" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfVehicleClassInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="VehicleClassInfo" nillable="true" type="tns:VehicleClassInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="VehicleClassInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ProductNo" type="xs:string" />
+      <xs:element minOccurs="0" name="VehicleClass" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfAPDListPostaWeb">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="APDListPostaWeb" nillable="true" type="tns:APDListPostaWeb" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="APDListPostaWeb">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="APDLog" type="tns:APDLog" />
+      <xs:element minOccurs="0" name="CustomerProductUserAccount" type="tns:CustomerProductUserAccount" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CustomerProductUserAccount">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AccountOwner" type="tns:Customer" />
+      <xs:element minOccurs="0" name="ProductOwner" type="tns:Customer" />
+      <xs:element minOccurs="0" name="PTTAutoPaymentDirective" type="tns:PTTAutoPaymentDirective" />
+      <xs:element minOccurs="0" name="Product" type="tns:Product" />
+      <xs:element name="ListStatus" type="xs:int" />
+      <xs:element name="Balance" type="xs:decimal" />
+      <xs:element minOccurs="0" name="User" type="tns:UserInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfAPDListWithPTTPostaWeb">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="APDListWithPTTPostaWeb" nillable="true" type="tns:APDListWithPTTPostaWeb" />
+    </xs:sequence>
+  </xs:complexType>
+</xsd:schema>

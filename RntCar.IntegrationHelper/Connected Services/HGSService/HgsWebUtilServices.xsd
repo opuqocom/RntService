@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://intf.service.hgspayments.payments.hmn.ykb.com/" xmlns:ns1="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" targetNamespace="http://intf.service.hgspayments.payments.hmn.ykb.com/" version="1.0">
+  <xs:import schemaLocation="HgsWebUtilServices.xsd1.xsd" namespace="http://tempuri.org/" />
+  <xs:element name="cancelProduct" type="tns:cancelProduct" />
+  <xs:element name="cancelProductResponse" type="tns:cancelProductResponse" />
+  <xs:element name="getHgsTransactionList" type="tns:getHgsTransactionList" />
+  <xs:element name="getHgsTransactionListResponse" type="tns:getHgsTransactionListResponse" />
+  <xs:element name="getHgsTransitList" type="tns:getHgsTransitList" />
+  <xs:element name="getHgsTransitListResponse" type="tns:getHgsTransitListResponse" />
+  <xs:element name="saleProduct" type="tns:saleProduct" />
+  <xs:element name="saleProductResponse" type="tns:saleProductResponse" />
+  <xs:element name="updateDirectiveAmounts" type="tns:updateDirectiveAmounts" />
+  <xs:element name="updateDirectiveAmountsResponse" type="tns:updateDirectiveAmountsResponse" />
+  <xs:element name="updateVehicleInfo" type="tns:updateVehicleInfo" />
+  <xs:element name="updateVehicleInfoResponse" type="tns:updateVehicleInfoResponse" />
+  <xs:complexType name="getHgsTransactionList">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:requestHgsTransactionListWEB" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="requestHgsTransactionListWEB">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:baseRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="finishDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="plateNo" type="xs:string" />
+          <xs:element minOccurs="0" name="productId" type="xs:string" />
+          <xs:element minOccurs="0" name="startDate" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="baseRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:coreDTO">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="coreDTO">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="getHgsTransactionListResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:responseHgsTransactionListWEB" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="responseHgsTransactionListWEB">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:baseResponseHgsWeb">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="transactions" nillable="true" type="ns1:Transaction" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="baseResponseHgsWeb">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:baseResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="errorCode" type="xs:string" />
+          <xs:element minOccurs="0" name="errorInfo" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="baseResponse" abstract="true">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:coreDTO">
+        <xs:sequence>
+          <xs:element name="id" type="xs:long" />
+          <xs:element name="parameters">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="entry">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element minOccurs="0" name="key" type="xs:string" />
+                      <xs:element minOccurs="0" name="value" type="xs:anyType" />
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element minOccurs="0" name="text" type="xs:string" />
+          <xs:element minOccurs="0" name="type" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="cancelProduct">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:requestCancelProductWEB" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="requestCancelProductWEB">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:baseRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="cancelReason" type="xs:int" />
+          <xs:element minOccurs="0" name="productId" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="cancelProductResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:baseResponseHgsWeb" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="updateDirectiveAmounts">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:requestUpdateDirectiveAmounts" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="requestUpdateDirectiveAmounts">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:baseRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="accountNumber" type="xs:string" />
+          <xs:element minOccurs="0" name="creditCardNumber" type="xs:string" />
+          <xs:element minOccurs="0" name="loadingAmount" type="xs:decimal" />
+          <xs:element minOccurs="0" name="loadingLowerLimit" type="xs:decimal" />
+          <xs:element minOccurs="0" name="plateNo" type="xs:string" />
+          <xs:element minOccurs="0" name="productId" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="updateDirectiveAmountsResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:baseResponseHgsWeb" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="saleProduct">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:requestSaleProductWEB" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="requestSaleProductWEB">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:baseRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="directiveNumber" type="xs:string" />
+          <xs:element minOccurs="0" name="licenseNo" type="xs:string" />
+          <xs:element minOccurs="0" name="plateNo" type="xs:string" />
+          <xs:element minOccurs="0" name="productId" type="xs:string" />
+          <xs:element minOccurs="0" name="productType" type="xs:string" />
+          <xs:element minOccurs="0" name="vehicleClass" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="saleProductResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:baseResponseHgsWeb" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getHgsTransitList">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:requestHgsTransitListWEB" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="requestHgsTransitListWEB">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:baseRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="finishDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="plateNo" type="xs:string" />
+          <xs:element minOccurs="0" name="productId" type="xs:string" />
+          <xs:element minOccurs="0" name="startDate" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="getHgsTransitListResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:responseHgsTransitListWEB" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="responseHgsTransitListWEB">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:baseResponseHgsWeb">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="transits" nillable="true" type="ns1:Transit" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="updateVehicleInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:requestUpdateVehicleInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="requestUpdateVehicleInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:baseRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="licenseNo" type="xs:string" />
+          <xs:element minOccurs="0" name="plateNo" type="xs:string" />
+          <xs:element minOccurs="0" name="productId" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="updateVehicleInfoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:baseResponseHgsWeb" />
+    </xs:sequence>
+  </xs:complexType>
+</xsd:schema>
