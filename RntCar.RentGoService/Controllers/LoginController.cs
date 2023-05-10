@@ -17,7 +17,7 @@ namespace RntCar.RentGoService.Controllers
         /// Bearer Token Generate
         /// </summary>
         ///  
-        [Route("api/Auth/Login")]//yöntemin URL'sini belirlemiş olduk(/api/Auth/Login) 
+        [Route("api/Auth/Login")]//Yöntemin URL'sini belirlemiş olduk(/api/Auth/Login) 
         [HttpPost]
         public IHttpActionResult Login(User user)
         {
