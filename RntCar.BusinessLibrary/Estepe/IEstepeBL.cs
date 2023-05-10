@@ -10,8 +10,8 @@ namespace RntCar.BusinessLibrary.Estepe
 {
     public interface IEstepeBL
     {
-        List<Filo_Takip_REG01> Filo_Takip_REG01();
-        List<View_OprOgsTanim_REGOResponse> GetHGSDefineList(short type);
-        void InsertHgsResult(HGS_INTEGRATION_RESULT HGS_INTEGRATION_RESULT);
+        List<Filo_Takip_REG01> Filo_Takip_REG01();//veritabanından belirli bir sorgu çalıştırarak bir liste döndürür. Bu liste, Filo_Takip_REG01 adlı bir sınıftan nesneler içerir.
+        List<View_OprOgsTanim_REGOResponse> GetHGSDefineList(short type);////veritabanındaki bir saklı prosedürü çağırarak belirli bir tipte HGS tanımları listesi döndürür.
+        void InsertHgsResult(HGS_INTEGRATION_RESULT HGS_INTEGRATION_RESULT);//InsertHgsResult metodu ise, HGS entegrasyonu sonucunda elde edilen sonuçları veritabanına kaydetmek için kullanılır.
     }
 }
